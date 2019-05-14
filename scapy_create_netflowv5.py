@@ -48,6 +48,4 @@ def create_pks_512ips():
  
  
 if __name__=='__main__':
-    #read_test(4)
-    #write_file1()
     create_pks_512ips()
