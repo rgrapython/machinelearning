@@ -37,8 +37,12 @@ def printPcap(pcap):
 def main():
     parser = optparse.OptionParser('usage%prog -p <pcap file>')
     parser.add_option('-p', dest='pcapFile', type='string', help='specify pcap filename')
-    (options, args)
-    f = open('geotest.pcap')  #创建一个文件对象
+    (options, args) = parser.parse_args()
+    if options.pcapFile == None:
+        print parser.usage
+        exit(0)
+    pcapFile = options.pcapFile
+    f = open(pcapFile)  #创建一个文件对象
     pcap = dpkt.pcap.Reader(f) #创建一个pcap.reader类的对象
     printPcap(pcap)
 
